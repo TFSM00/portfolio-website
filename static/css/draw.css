@@ -1,0 +1,110 @@
+@font-face {
+    font-family: "PressStart2P";
+    src: url("../resources/draw/PressStart2P-vaV7.ttf");
+}
+
+
+body {
+    background-color: #4980f718;
+    font-size: small;
+}
+
+
+
+.header {
+    display: flex;
+    justify-content: center;
+    font-family: "PressStart2P";
+    padding: 25px;
+    width: 300px;
+    text-align: center;
+    margin: auto;
+
+
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    background-color: aqua;
+    background-clip: border-box;
+    border-radius: 50px;
+    padding-top: 75px;
+    width: fit-content;
+    height: fit-content;
+}
+
+
+.grid {
+    display: grid;
+    align-content: center;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    margin-bottom: 50px;
+    background-color: white;    
+}
+
+.cell {
+    border: 1px solid gray;
+    user-select: none;
+
+}
+
+.cell:hover {
+    background-color: aqua;
+}
+
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: auto;
+    padding: 50px;
+    width: 600px;
+    background-color: plum;
+    border-radius: 0px 0px 50px 50px;
+    font-family: "PressStart2P";
+    
+}
+
+button {
+    font-family: "PressStart2P";
+    width: 100px;
+    height: 50px;
+}   
+
+p {
+    text-align: center;
+    width: 250px;
+}
+
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    padding-top: 50px;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 16px;
+    width: fit-content;
+    height: fit-content;
+    gap: 20px;
+}
+
+#dev {
+    text-align: center;
+    margin: auto;
+    width: 200px;
+}
+
+#copyright {
+    text-align: center;
+    margin: auto;
+    width: 200px;
+
+
+}
