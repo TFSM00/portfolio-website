@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Etch-a-Sketch</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="static/css/draw.css">
+    <link rel="icon" href="static/resources/draw/paint-palette.png" type="image/x-icon">
+
+</head>
+<body>
+    <div class="header">
+        <h2>Etch-a-Sketch</h2>
+    </div>
+    
+    
+    
+    <div class="middle">
+        <div class="grid-container">
+            <div class="grid">
+            </div>
+        </div>
+        <div class="button-area">
+            <button id="clear" onclick="clearGrid()">Clear Grid</button>
+            <p>Current Grid Size</p>
+            <button id="size" onclick="changeSize()">Change Grid Size</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p id="dev">Developed and Designed by Tiago Moreira</p>
+        <a href="https://github.com/TFSM00">
+            <img src="static/resources/draw/GitHub-Mark-64px.png">
+        </a>
+        <p id="copyright">Copyright © 2022 TFSM00 </p>
+
+    </div>
+
+    <script src="static/js/draw.js">
+    </script>
+</body>
+</html>
