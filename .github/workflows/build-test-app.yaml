@@ -18,5 +18,5 @@ jobs:
         ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
         ssh_user: ${{ secrets.SSH_USER }}
         ssh_port: ${{ secrets.SSH_PORT }}
-        docker_compose_prefix: microtasker
+        docker_compose_prefix: portfolio
         docker_compose_filename: docker-compose.yml
