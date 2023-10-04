@@ -1,0 +1,145 @@
+<!-- 
+Every Sidebar Link Icon must have "me-2" in the class
+-->
+{% from 'macros/theme.html' import theme, theme_request %}
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="{{ session['theme'] }}">
+<head>
+  {% block head %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/microtasker/css/base.css">
+  <link rel="icon" type="image/x-icon" href="/static/microtasker/icons/kanban.ico">
+  <link href="/static/pw/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <title>{% block title %}Microtasker{% endblock %}</title>
+  
+  {% endblock %}
+</head>
+{% block body %}
+<body class="border">
+<div class="position-fixed bottom-0 end-0 mb-3 me-3 border rounded" id="btnSwitch">
+    {# Create a call to theme to change it and save to current session #}
+    {% if session.theme=='dark' %}
+    <a class="btn btn-bd-primary py-2 d-flex align-items-center" href="{{ url_for('microtasker.theme', theme='white', path=request.path)}}">
+    {% else %}
+    <a class="btn btn-bd-primary py-2 d-flex align-items-center" href="{{ url_for('microtasker.theme', theme='dark', path=request.path)}}">
+    {% endif %}
+      <i id="color-theme" class="bi bi-brightness-high-fill"></i>
+    </a>
+    {######################################################################}
+</div> 
+     
+  <div class="d-flex">
+      <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary sticky-top" style="width: 230px;">
+    <a href="{{ url_for('microtasker.home')}}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+      <img class="me-2 pe-none" src="/static/microtasker/icons/kanban.png" width="35" height="35">
+      <span class="fs-4">Microtasker</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="{{ url_for('microtasker.home') }}" class="nav-link {#'active' if request.path == '/'#}" aria-current="page">
+          <span class="fs-6 badge rounded-pill bg-primary">
+            <i class="bi bi-house me-2"></i>
+            Home
+          </span>
+        </a>
+      </li>
+      {% if current_user.is_authenticated %}
+      <li class="nav-item">
+          <a href="#" class="nav-link" id="dropdown-1" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+            <span class="fs-6 badge rounded-pill bg-primary">
+            <i class="bi bi-border-all me-2"></i>
+            Boards
+            </span>
+          </a>
+
+          <div class="collapse" id="dashboard-collapse" style="">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              {% for board in current_user.boards %}
+                <li>
+                  <a href="{{ url_for('microtasker.board', board_id=board.id)}}" class="text-decoration-none rounded" style="max-width: 150px;">
+                    <p class="fs-6 badge m-0 overflow-hidden rounded-pill" style="background-color: {{ board.color }};">
+                    <i class="bi bi-arrow-right-square me-2"></i>
+                    <span class="text-start align-top text-ellipsis" style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px;">
+                      {{ board.title }}
+                    </span>
+                    </p>
+                  </a>
+                </li>
+                
+              {% endfor %}
+              <li>
+                <a href="{{ url_for('microtasker.createboard') }}" class="text-decoration-none rounded">
+                  <span class="align-middle fs-6 m-0 badge rounded-pill bg-success">
+                  <i class="bi bi-plus-circle me-2"></i>Create Board</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a href="{{ url_for('microtasker.login') }}" class="nav-link" aria-current="page">
+          <span class="fs-6 badge rounded-pill bg-primary">
+            <i class="bi bi-box-arrow-in-right me-2"></i>
+            Login
+          </span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ url_for('microtasker.register') }}" class="nav-link" aria-current="page">
+          <span class="fs-6 badge rounded-pill bg-primary">
+            <i class="bi bi-r-square me-2"></i>
+            Register
+          </span>
+        </a>
+      </li>
+      {% endif %}
+
+    </ul>
+    {% if current_user.is_authenticated %}
+    <hr>
+    <div class="dropdown" id="userprofile">
+      <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="{{ current_user.email | gravatar }}" alt="" width="32" height="32" class="rounded-circle me-2">
+        <strong>{{ current_user.username }}</strong>
+      </a>
+      <ul class="dropdown-menu text-small shadow">
+        <li><a class="dropdown-item" href="{{ url_for('microtasker.profile', username=current_user.username) }}">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="{{ url_for('microtasker.logout') }}">Log out</a></li>
+      </ul>
+    </div>
+    {% else %}
+    {% endif %}
+
+  </div>
+      {% block main %}
+      <main class="flex-grow-1 border" style="border-right: 0 !important; border-top: 0 !important;">
+          {% block content%}
+          {% endblock %}
+      </main>
+      {% endblock %}
+  </div>
+
+  <script src="/static/pw/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/microtasker/js/base.js"></script>
+  <script src="/static/microtasker/js/collapse.js"></script>
+  {% block script %}
+  {% endblock %}
+</body>
+{% endblock %}
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+{% extends "pw/base.html" %}
+
+{% block content %}
+<div class="container px-4 py-5">
+    <h2 class="pb-2 ">My Projects</h2>
+        {% for list in projects %}
+        <div class="container-fluid">
+            <div class="row justify-content-between row-cols-1 row-cols-md-3 row-cols-lg-3 pb-3">
+                {% for project in list %}
+                <div class="col-3 mb-3 card" style="max-width: 32%; {{'visibility: hidden' if project.name=='hidden'}}">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div class="row ">
+                            <div class="col-9">
+                                <h5 class="card-title">{{project.name}}</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">{{project.type}}</h6>
+                            </div>
+                            <div class="col-3 d-flex flex-wrap justify-content-end">
+                                <a href="{{project.link}}" target="_blank">
+                                    <div class="rounded badge border bg-transparent">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                            <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                                            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="card-text">{{project.description}}</p>
+                        <div class="d-flex gap-2">
+                            {% for lang in project.languages %}
+                            <a tabindex="0" data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-placement="top" data-bs-content="{{ project.languages[lang] }}" class="rounded badge bg-transparent border my-2" id="pglang" style="max-width: fit-content;">
+                                <img src="/static/pw/images/{{lang}}.svg" width="30" height="30" style="{{'filter: invert()' if lang=="flask"}}">
+                            </a>    
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+<div class="container sticky-top w-100" id="header">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2 {{'' if request.path=='/' else 'border-bottom' }}">
+      <div class="col-md-3 mb-2 mb-md-0 ">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="white" class="bi bi-badge-tm" viewBox="0 0 16 16">
+                <path d="M5.295 11V5.995H7V5H2.403v.994h1.701V11h1.19zm3.397 0V7.01h.058l1.428 3.239h.773l1.42-3.24h.057V11H13.5V5.001h-1.2l-1.71 3.894h-.039l-1.71-3.894H7.634V11h1.06z"/>
+                <path d="M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z"/>
+            </svg>
+            <span class="fs-4 text-white px-2">Tiago Moreira</span>
+        </a>
+      </div>
+
+      <ul class="nav nav-pills col-md-auto mb-2 justify-content-center gap-3 mb-md-0 text-end">
+        <a href="{{ url_for('pw.home') }}" class="text-white text-decoration-none px-2 btn"><li class="nav-item px-2 btn rounded-pill">Home</li></a>
+        <a href="{{ url_for('pw.projects') }}" class="text-white text-decoration-none px-2 btn "><li class="nav-item px-2 btn rounded-pill">Projects</li></a>
+        <a href="{{ url_for('pw.skills') }}" class="text-white text-decoration-none px-2 btn "><li class="nav-item px-2 btn rounded-pill">Skills</li></a>
+        <a href="{{ url_for('pw.cv')}}" class="text-white text-decoration-none px-2 btn " ><li class="nav-item px-3 btn rounded-pill">CV</li></a>
+        <a href="{{ url_for('microtasker.home')}}" class="text-decoration-none px-2 btn " ><li class="bg-white text-dark nav-item px-3 btn rounded-pill"><img class="me-2 pe-none" src="/static/microtasker/icons/kanban.png" width="16" height="16">Microtasker</li></a>
+      </ul>
+
+    </header>
+</div>

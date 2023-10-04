@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg" href="/static/pw/images/badge-tm.svg" />
+    <link href="/static/pw/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/pw/css/styles.css">
+    <link href="/static/pw/css/inter-font.css" rel="stylesheet"> 
+    <title>{% block title %}Tiago's Website{% endblock %}</title>
+</head>
+
+{% block body %}
+<body>
+    {% include "pw/header.html" %}
+    {% block content%}
+    {% endblock %}
+</body>
+{% endblock %}
+<script src="/static/pw/js/jquery-3.6.0.min.js"></script>
+<script src="/static/pw/js/bootstrap.bundle.min.js"></script>
+<script src="/static/pw/js/index.js"></script>
+</html>
+
+
+

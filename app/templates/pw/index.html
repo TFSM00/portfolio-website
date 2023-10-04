@@ -1,0 +1,53 @@
+{% extends "pw/base.html" %}
+
+{% block content %}
+<div id="main" class="d-flex cover-container vw-100 m-0 p-0" style="height: ;">
+<div class="cover-container col-xxl-8 px-1 py-3 rounded m-auto" id="intro">
+    <div class="row flex-lg-row align-items-center py-1">
+        <div class="col-lg-4 col-md-4">
+            <div>
+            <img src="https://avatars.githubusercontent.com/u/87781847?s=400&u=411d7950ca1b602f77687fb283e0a5907b6d0ce4&v=4" alt="logo" class="d-block mx-lg-auto img-fluid profile-img" loading="lazy">
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-7 offset-md-1">
+            <div>
+                <h3 class="display-10 fw-bold lh-1 mb-3 text-white">Welcome to my Portfolio Website</h3>
+                <p class="lead text-white">My name is <b>Tiago Moreira</b>. I am a Management Graduate from <b>Universidade do Minho</b> and I am currently getting a <b>Master's Degree in Finance</b>.
+                <p class="lead text-white">I'm a beginner self-taught programmer who loves finance and I try to become better at both every project I make.</p>
+                <p class="lead text-white">In my spare time, I love learning about new technologies. Besides programming, I enjoy video games and motorsports.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="https://github.com/TFSM00" target="_blank">
+                        <button class="d-inline-flex align-items-center btn fw-bold font-light border-3 border-light btn-dark btn-lg px-4 rounded-pill" type="button">
+                            Github
+                            <img class="ms-2" src="/static/pw/images/github.svg" width="30" height="30" style="filter: invert(100%);">
+                        </button>  
+                    </a>
+                    <a href="https://www.linkedin.com/in/tiago-moreira00/" target="_blank">
+                        <button class="d-inline-flex align-items-center btn fw-bold border border-3 border-primary font-dark btn-light btn-lg px-4 rounded-pill" type="button">
+                            LinkedIn
+                            <img class="ms-2" src="/static/pw/images/linkedin.svg" width="30" height="30" >
+                        </button>    
+                    </a>
+                    <button onclick="copyToClipboard()" id="clipBtn" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="bottom" data-bs-title="Click to Copy to Clipboard" class="copy-button d-inline-flex align-items-center btn fw-bold border border-danger border-3 font-dark btn-light btn-lg px-4 rounded-pill" type="button">
+                        Email
+                        <img class="ms-2" src="/static/pw/images/gmail.svg" width="30" height="30" >
+                    </button>    
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+
+<!-- Clipboard Alert -->
+<div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+  <div id="clip" class="toast fade" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+        <div class="toast-body">
+        Email copied to your clipboard!
+        </div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+{% endblock %}
