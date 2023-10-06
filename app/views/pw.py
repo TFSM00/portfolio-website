@@ -18,7 +18,6 @@ def ssl(file):
     return send_file(file_path)
 
 
-
 @pw.route("/cv")
 def cv():
     return render_template('pw/cv.html')

@@ -10,7 +10,7 @@ services:
       - flask_network
     volumes:
       - sessions:/app/flask_session/
-      - certbot-www:/var/www/certbot/:ro
+      - certbot-www:/var/www/certbot/
     depends_on:
       - db
     env_file:
