@@ -10,6 +10,7 @@ services:
       - flask_network
     volumes:
       - sessions:/app/flask_session/
+      - nginx:/etc/nginx/
     depends_on:
       - db
     env_file:
@@ -26,7 +27,7 @@ services:
     env_file:
       - env-vars.txt
     volumes:
-      - nginx-conf:/etc/nginx/conf.d/:ro
+      - nginx:/etc/nginx/
 
   db:
     image: postgres:16
@@ -48,4 +49,4 @@ networks:
 volumes:
   postgres_data:
   sessions:
-  nginx-conf:
+  nginx:
