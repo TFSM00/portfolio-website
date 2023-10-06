@@ -11,9 +11,6 @@ server {
         proxy_set_header X-Forwarded-Prefix /;
     }
 
-    location / {
-        return 301 https://tfsm00.ddns.net$request_uri;
-    }
 }
 
 server {
