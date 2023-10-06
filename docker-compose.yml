@@ -10,7 +10,6 @@ services:
       - flask_network
     volumes:
       - sessions:/app/flask_session/
-      - certbot-www:/var/www/certbot/
     depends_on:
       - db
     env_file:
@@ -28,14 +27,6 @@ services:
       - env-vars.txt
     volumes:
       - nginx-conf:/etc/nginx/conf.d/:ro
-      - certbot-www:/var/www/certbot/:ro
-      - certbot-conf:/etc/nginx/ssl/:ro
-
-  certbot:
-    image: certbot/certbot:latest
-    volumes:
-      - certbot-www:/var/www/certbot/:rw
-      - certbot-conf:/etc/letsencrypt/:rw
 
   db:
     image: postgres:16
@@ -58,5 +49,3 @@ volumes:
   postgres_data:
   sessions:
   nginx-conf:
-  certbot-www:
-  certbot-conf:

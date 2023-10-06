@@ -11,9 +11,9 @@ def home():
     return render_template('pw/index.html')
 
 
-@pw.route("/.well-known/acme-challenge/<file>")
+@pw.route("/.well-known/pki-validation/<file>")
 def ssl(file):
-    directory_path = '/var/www/certbot'
+    directory_path = '/app/static/certs'
     file_path = os.path.join(directory_path, file)
     return send_file(file_path)
 
