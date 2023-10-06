@@ -1,7 +1,29 @@
 server {
-    listen              8080;
+    listen              80;
 
     server_name localhost;
+    server_tokens off;
+    location / {
+        proxy_pass http://app:5000;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Prefix /;
+    }
+
+    location/.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+}
+
+server {
+    listen 443 default_server ssl http2;
+
+    server_name localhost;
+
+    ssl_certificate /etc/nginx/ssl/live/localhost/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/localhost/privkey.pem;
+
     location / {
         proxy_pass http://app:5000;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -10,3 +32,4 @@ server {
         proxy_set_header X-Forwarded-Prefix /;
     }
 }
+

@@ -19,11 +19,21 @@ services:
     build: nginx
     restart: always
     ports:
-      - 8080:8080
+      - 8080:80
+      - 4343:443
     networks:
       - flask_network
     env_file:
       - env-vars.txt
+    volumes:
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
+      - ./certbot/www:/var/www/certbot/:ro
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
 
   db:
     image: postgres:16

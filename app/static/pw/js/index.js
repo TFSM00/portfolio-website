@@ -19,7 +19,7 @@ function copyToClipboard() {
         .catch(err => {
             console.error("Failed to copy text: " + err);
         });
-}
+};
 
 function showHide(id, state) {
     let element = document.querySelector(id)
