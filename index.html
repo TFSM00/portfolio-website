@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg" href="/static/images/badge-tm.svg" />
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="/static/css/inter-font.css" rel="stylesheet">
+    <title>Tiago's Website</title>
+</head>
+
+<!-- BODY -->
+<body>
+    <div class="container sticky-top w-100" id="header">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2">
+            <div class="col-md-3 mb-2 mb-md-0 ">
+                <a href="/"
+                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="white" class="bi bi-badge-tm"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M5.295 11V5.995H7V5H2.403v.994h1.701V11h1.19zm3.397 0V7.01h.058l1.428 3.239h.773l1.42-3.24h.057V11H13.5V5.001h-1.2l-1.71 3.894h-.039l-1.71-3.894H7.634V11h1.06z" />
+                        <path
+                            d="M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z" />
+                    </svg>
+                    <span class="fs-4 text-white px-2">Tiago Moreira</span>
+                </a>
+            </div>
+
+            <ul class="nav nav-pills col-md-auto mb-2 justify-content-center gap-3 mb-md-0 text-end">
+                <a href="./index.html" class="text-white text-decoration-none px-2 btn">
+                    <li class="nav-item px-2 btn rounded-pill">Home</li>
+                </a>
+                <a href="./projects.html" class="text-white text-decoration-none px-2 btn ">
+                    <li class="nav-item px-2 btn rounded-pill">Projects</li>
+                </a>
+                <a href="./skills.html" class="text-white text-decoration-none px-2 btn ">
+                    <li class="nav-item px-2 btn rounded-pill">Skills</li>
+                </a>
+                <a href="./cv.html" target="_blank" class="text-white text-decoration-none px-2 btn ">
+                    <li class="nav-item px-3 btn rounded-pill">CV</li>
+                </a>
+            </ul>
+
+        </header>
+    </div>
+
+    <div id="main" class="d-flex cover-container vw-100 m-0 p-0">
+        <div class="cover-container col-xxl-8 px-1 py-3 rounded m-auto" id="intro">
+            <div class="row flex-lg-row align-items-center py-1">
+                <div class="col-lg-4 col-md-4">
+                    <div>
+                        <img src="https://avatars.githubusercontent.com/u/87781847?s=400&u=411d7950ca1b602f77687fb283e0a5907b6d0ce4&v=4"
+                            alt="logo" class="d-block mx-lg-auto img-fluid profile-img" loading="lazy">
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 offset-md-1">
+                    <div>
+                        <h3 class="display-10 fw-bold lh-1 mb-3 text-white">Welcome to my Portfolio Website</h3>
+                        <p class="lead text-white">My name is <b>Tiago Moreira</b>. I am a Management Graduate from
+                            <b>Universidade do Minho</b> and I am currently getting a <b>Master's Degree in Finance</b>.
+                        <p class="lead text-white">I'm a beginner self-taught programmer who loves finance and I try to
+                            become better at both every project I make.</p>
+                        <p class="lead text-white">In my spare time, I love learning about new technologies. Besides
+                            programming, I enjoy video games and motorsports.</p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <a href="https://github.com/TFSM00" target="_blank">
+                                <button
+                                    class="d-inline-flex align-items-center btn fw-bold font-light border-3 border-light btn-dark btn-lg px-4 rounded-pill"
+                                    type="button">
+                                    Github
+                                    <img class="ms-2" src="/static/images/github.svg" width="30" height="30"
+                                        style="filter: invert(100%);">
+                                </button>
+                            </a>
+                            <a href="https://www.linkedin.com/in/tiago-moreira00/" target="_blank">
+                                <button
+                                    class="d-inline-flex align-items-center btn fw-bold border border-3 border-primary font-dark btn-light btn-lg px-4 rounded-pill"
+                                    type="button">
+                                    LinkedIn
+                                    <img class="ms-2" src="/static/images/linkedin.svg" width="30" height="30">
+                                </button>
+                            </a>
+                            <button onclick="copyToClipboard()" id="clipBtn" data-bs-toggle="tooltip"
+                                data-bs-trigger="hover" data-bs-placement="bottom"
+                                data-bs-title="Click to Copy to Clipboard"
+                                class="copy-button d-inline-flex align-items-center btn fw-bold border border-danger border-3 font-dark btn-light btn-lg px-4 rounded-pill"
+                                type="button">
+                                Email
+                                <img class="ms-2" src="/static/images/gmail.svg" width="30" height="30">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Clipboard Alert -->
+    <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+        <div id="clip" class="toast fade" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Email copied to your clipboard!
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="/static/js/jquery-3.6.0.min.js"></script>
+<script src="/static/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/index.js"></script>
+</html>

@@ -1,0 +1,51 @@
+[
+    {
+        "name": "Microtasker",
+        "description": "A kanban web application for managing tasks",
+        "link": "http://tfsm00.ddns.net/microtasker/",
+        "type": "Full-Stack Web App",
+        "languages": {"python":"Python", "flask": "Flask", "js":"Javascript", "bootstrap":"Bootstrap", "postgresql":"PostgreSQL", "docker":"Docker"}
+    },
+    {
+        "name": "Black-Scholes Option Pricing Calculator",
+        "description": "Calculation and Visualization of Option Price and Greeks on European Options using the Black-Scholes Option Pricing Model",
+        "link": "https://tfsm00-black-scholes-calculator-bsm-streamlit-rm6hsi.streamlit.app/",
+        "type": "Data-Science Web App",
+        "languages": {"python":"Python", "streamlit":"Streamlit"}
+    },
+    {
+        "name": "Efficient Frontier Calculator",
+        "description": "A Portfolio Efficient Frontier Calculator which includes graphical visualization of Correlation, Security Market Line and Rolling Beta for U.S. Equities",
+        "link": "https://tfsm00-markowitz-efficient-frontier-efficient-frontier-foagx5.streamlit.app/",
+        "type": "Data-Science Web App",
+        "languages": {"python":"Python", "streamlit":"Streamlit"}
+    },
+    {
+        "name": "Breakout",
+        "description": "A try at recreating the old Atari game called Breakout designed by Steve Wozniak",
+        "link": "https://github.com/TFSM00/Breakout",
+        "type": "Game",
+        "languages": {"python":"Python"}
+    },
+    {
+        "name": "PyRubiks",
+        "description": "A simple Rubik's cube game written in Python",
+        "link": "https://github.com/TFSM00/PyRubiks",
+        "type": "Game",
+        "languages": {"python":"Python"}
+    },
+    {
+        "name": "Hangman",
+        "description": "A command-line Hangman game",
+        "link": "https://github.com/TFSM00/TOP-Ruby-on-Rails/blob/master/hangman/hangman.rb",
+        "type": "Game (CLI)",
+        "languages": {"ruby":"Ruby"}
+    },
+    {
+        "name": "Etch-a-Sketch",
+        "description": "A front-end replica of Etch-a-Sketch, suggested by The Odin Project ",
+        "link": "https://tfsm00.github.io/Etch-a-Sketch/",
+        "type": "Front-end App - Web Development",
+        "languages": {"html":"HTML", "css": "CSS", "js": "Javascript"}
+    }
+]
